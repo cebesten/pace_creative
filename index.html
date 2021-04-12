@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Pace Creative</title>
+</head>
+<body>
+	
+<h1>Movie:<span id="name"></span></h1>
+<h2>launch date: <span id="date"></h2>
+
+
+
+	<script type="text/javascript">
+		let req = new XMLHttpRequest();
+
+		req.onreadystatechange = () => {
+		  if (req.readyState == XMLHttpRequest.DONE) {
+		    console.log(req.responseText);
+		  }
+		};
+		/*jsonbin credentials for api*/
+		req.open("GET", "https://api.jsonbin.io/b/60747fe55b165e19f61e0437/1", true);
+		req.setRequestHeader("secret-key", "$2b$10$fpH/16rWcoI60HegQ6sfiOmiolf5KI0WW1yp8BaA50eRCHFkCdEze");
+		req.send();
+		/*calling the api*/
+		const api_url = 'https://api.jsonbin.io/b/60747fe55b165e19f61e0437';
+		async function calendar(){
+			const response = await fetch(api_url);
+			const data = await response.json();
+			const {title,launch_date} = data;
+
+			console.log(title);
+			console.log(launch_date);
+		//	const {title,launch_date};
+
+			document.getElementById('name').textContent = "pruba";
+			document.getElementById('date').textContent = launch_date;
+
+		}
+		calendar();
+
+
+
+	</script>
+
+</body>
+</html>
