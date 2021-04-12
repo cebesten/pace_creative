@@ -17,13 +17,13 @@
 		async function calendar(){
 			const response = await fetch(api_url);
 			const data = await response.json();
-			const {title,launch_date} = data;
+			const { title , launch_date } = data;
 
 			console.log("title");
-			console.log(launch_date);
+			console.log(data.launch_date);
 		//	const {title,launch_date};
 
-			document.getElementById('name').textContent = "prueba";
+			document.getElementById('name').textContent = "testing";
 			document.getElementById('date').textContent = data.launch_date;
 
 		}
